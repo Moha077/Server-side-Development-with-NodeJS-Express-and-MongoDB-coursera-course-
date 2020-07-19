@@ -4,28 +4,7 @@ require('mongoose-currency').loadType(mongoose);
 
 const Currency = mongoose.Types.Currency;
 
-const commentSchema = new Schema({
-
-    rating : {
-        type: Number,
-        required:true,
-        min:1,
-        max:5
-    },
-    comment : {
-
-        type:String,
-        required: true
-    },
-    author: {
-        type:String,
-        required:true
-    },
-    
-},
-{timestamps:true});
-
-const dishSchema = new Schema({
+const promoSchema = new Schema({
 
     name : {
         type:String,
@@ -38,13 +17,9 @@ const dishSchema = new Schema({
         type:String,
         required:true
     },
-    category: {
+    labe: {
         type:String,
         default:''
-    },
-    label: {
-        type:String,
-        required:''
     },
     price: {
 
@@ -55,13 +30,11 @@ const dishSchema = new Schema({
     featured: {
 
         type:Boolean,
-default:false  
-  },
+default:false    },
 description :{
     type:String ,
     required:true,
 },
-    comments: [commentSchema]
      
 },
 {timestamps:true}
@@ -69,5 +42,5 @@ description :{
 );
 
 
-var Dishes =mongoose.model('Dish',dishSchema);
-module.exports= Dishes;
+var Promotions =mongoose.model('Promotion',promoSchema );
+module.exports= Promotions;
