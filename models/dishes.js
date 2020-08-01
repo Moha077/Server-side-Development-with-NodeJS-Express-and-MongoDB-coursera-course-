@@ -14,8 +14,8 @@ const commentSchema = new Schema({
     },
     comment : {
 
-        type:String,
-        required: true
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     author: {
         type:String,
